@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		2BF260A9218E8FC700152300 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF260A8218E8FC700152300 /* AppDelegate.swift */; };
 		2BF260AB218E8FC700152300 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF260AA218E8FC700152300 /* ViewController.swift */; };
-		2BF260AE218E8FC700152300 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BF260AC218E8FC700152300 /* Main.storyboard */; };
 		2BF260B0218E8FCD00152300 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BF260AF218E8FCD00152300 /* Assets.xcassets */; };
-		2BF260B3218E8FCD00152300 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BF260B1218E8FCD00152300 /* LaunchScreen.storyboard */; };
 		2BF260BE218E8FCD00152300 /* mg2252_a5Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF260BD218E8FCD00152300 /* mg2252_a5Tests.swift */; };
 		2BF260C9218E8FCD00152300 /* mg2252_a5UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF260C8218E8FCD00152300 /* mg2252_a5UITests.swift */; };
+		2BF260D9218E907700152300 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF260D8218E907700152300 /* Restaurant.swift */; };
+		2BF260DB218EA3F800152300 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF260DA218EA3F800152300 /* PhotoCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,9 +37,7 @@
 		2BF260A5218E8FC700152300 /* mg2252_a5.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mg2252_a5.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BF260A8218E8FC700152300 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2BF260AA218E8FC700152300 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		2BF260AD218E8FC700152300 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2BF260AF218E8FCD00152300 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		2BF260B2218E8FCD00152300 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2BF260B4218E8FCD00152300 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2BF260B9218E8FCD00152300 /* mg2252_a5Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mg2252_a5Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BF260BD218E8FCD00152300 /* mg2252_a5Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mg2252_a5Tests.swift; sourceTree = "<group>"; };
@@ -47,6 +45,8 @@
 		2BF260C4218E8FCD00152300 /* mg2252_a5UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mg2252_a5UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BF260C8218E8FCD00152300 /* mg2252_a5UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mg2252_a5UITests.swift; sourceTree = "<group>"; };
 		2BF260CA218E8FCD00152300 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2BF260D8218E907700152300 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		2BF260DA218EA3F800152300 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,10 +99,10 @@
 			children = (
 				2BF260A8218E8FC700152300 /* AppDelegate.swift */,
 				2BF260AA218E8FC700152300 /* ViewController.swift */,
-				2BF260AC218E8FC700152300 /* Main.storyboard */,
+				2BF260DA218EA3F800152300 /* PhotoCollectionViewCell.swift */,
 				2BF260AF218E8FCD00152300 /* Assets.xcassets */,
-				2BF260B1218E8FCD00152300 /* LaunchScreen.storyboard */,
 				2BF260B4218E8FCD00152300 /* Info.plist */,
+				2BF260D8218E907700152300 /* Restaurant.swift */,
 			);
 			path = mg2252_a5;
 			sourceTree = "<group>";
@@ -229,9 +229,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2BF260B3218E8FCD00152300 /* LaunchScreen.storyboard in Resources */,
 				2BF260B0218E8FCD00152300 /* Assets.xcassets in Resources */,
-				2BF260AE218E8FC700152300 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,7 +255,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2BF260AB218E8FC700152300 /* ViewController.swift in Sources */,
+				2BF260DB218EA3F800152300 /* PhotoCollectionViewCell.swift in Sources */,
 				2BF260A9218E8FC700152300 /* AppDelegate.swift in Sources */,
+				2BF260D9218E907700152300 /* Restaurant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,25 +291,6 @@
 			targetProxy = 2BF260C5218E8FCD00152300 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		2BF260AC218E8FC700152300 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2BF260AD218E8FC700152300 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		2BF260B1218E8FCD00152300 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2BF260B2218E8FCD00152300 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		2BF260CB218E8FCD00152300 /* Debug */ = {
