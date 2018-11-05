@@ -7,13 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2BF260A9218E8FC700152300 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF260A8218E8FC700152300 /* AppDelegate.swift */; };
 		2BF260AB218E8FC700152300 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF260AA218E8FC700152300 /* ViewController.swift */; };
 		2BF260B0218E8FCD00152300 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BF260AF218E8FCD00152300 /* Assets.xcassets */; };
 		2BF260BE218E8FCD00152300 /* mg2252_a5Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF260BD218E8FCD00152300 /* mg2252_a5Tests.swift */; };
 		2BF260C9218E8FCD00152300 /* mg2252_a5UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF260C8218E8FCD00152300 /* mg2252_a5UITests.swift */; };
 		2BF260D9218E907700152300 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF260D8218E907700152300 /* Restaurant.swift */; };
 		2BF260DB218EA3F800152300 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF260DA218EA3F800152300 /* PhotoCollectionViewCell.swift */; };
+		2BF260E5218F941C00152300 /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF260E4218F941C00152300 /* SearchCollectionViewCell.swift */; };
+		2BF260E7218F9B1300152300 /* AppDelegte.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF260E6218F9B1300152300 /* AppDelegte.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +36,6 @@
 
 /* Begin PBXFileReference section */
 		2BF260A5218E8FC700152300 /* mg2252_a5.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mg2252_a5.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		2BF260A8218E8FC700152300 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2BF260AA218E8FC700152300 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2BF260AF218E8FCD00152300 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2BF260B4218E8FCD00152300 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,6 +47,8 @@
 		2BF260CA218E8FCD00152300 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2BF260D8218E907700152300 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		2BF260DA218EA3F800152300 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		2BF260E4218F941C00152300 /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
+		2BF260E6218F9B1300152300 /* AppDelegte.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegte.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,9 +99,10 @@
 		2BF260A7218E8FC700152300 /* mg2252_a5 */ = {
 			isa = PBXGroup;
 			children = (
-				2BF260A8218E8FC700152300 /* AppDelegate.swift */,
+				2BF260E6218F9B1300152300 /* AppDelegte.swift */,
 				2BF260AA218E8FC700152300 /* ViewController.swift */,
 				2BF260DA218EA3F800152300 /* PhotoCollectionViewCell.swift */,
+				2BF260E4218F941C00152300 /* SearchCollectionViewCell.swift */,
 				2BF260AF218E8FCD00152300 /* Assets.xcassets */,
 				2BF260B4218E8FCD00152300 /* Info.plist */,
 				2BF260D8218E907700152300 /* Restaurant.swift */,
@@ -256,8 +259,9 @@
 			files = (
 				2BF260AB218E8FC700152300 /* ViewController.swift in Sources */,
 				2BF260DB218EA3F800152300 /* PhotoCollectionViewCell.swift in Sources */,
-				2BF260A9218E8FC700152300 /* AppDelegate.swift in Sources */,
 				2BF260D9218E907700152300 /* Restaurant.swift in Sources */,
+				2BF260E5218F941C00152300 /* SearchCollectionViewCell.swift in Sources */,
+				2BF260E7218F9B1300152300 /* AppDelegte.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,6 +8,20 @@
 
 import UIKit
 
+enum Category: String, CaseIterable {
+    case mexican = "Mexican"
+    case american = "American"
+    case koreaan = "Korean"
+    case vietnamese = "Vietnamese"
+    case ctown = "CTown"
+    case commons = "Commons"
+    case fastfood = "Fast Food"
+    case japanese = "Japanese"
+    case mediterranean = "Mediterranean"
+    case indian = "Indian"
+    
+}
+
 class Restaurant {
     var name: String!
     var rating: Int!

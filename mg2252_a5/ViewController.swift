@@ -8,27 +8,17 @@
 
 import UIKit
 
-class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return restArray.count
-    }
+class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: photoCellReuseIdentifier, for: indexPath) as! PhotoCollectionViewCell
-        let restaurant = restArray[indexPath.item]
-        cell.configure(for: restaurant)
-        cell.setNeedsUpdateConstraints()
-        
-        return cell
-    }
-    
-    var collectionView: UICollectionView!
+    var restaurantCollectionView: UICollectionView!
+    var filterCollectionView: UICollectionView!
     var refreshControl: UIRefreshControl!
     var restArray: [Restaurant]!
     
     let padding: CGFloat = 8
     let headingHeight: CGFloat = 50
     let photoCellReuseIdentifier = "photoCellReuseIdentifier"
+    let searchCellReuiseIdentifier = "searchCellReuseIdentifier"
     
 
     override func viewDidLoad() {
@@ -37,9 +27,9 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         title = "Restaurants"
         view.backgroundColor = .white
         
-        let aladdins = Restaurant(imageName: "Aladdins", restType: "Mediterranean", restRating: 9, restName: "Aladdins")
+        let aladdins = Restaurant(imageName: "Aladdins", restType: "Mediterranean", restRating: 7, restName: "Aladdins")
         let viva = Restaurant(imageName: "Viva", restType: "Mexican", restRating: 8, restName: "Viva")
-        let wingsOver = Restaurant(imageName: "Wings", restType: "Fast Food", restRating: 9, restName: "Wings over Ithaca")
+        let wingsOver = Restaurant(imageName: "Wings", restType: "Fast Food", restRating: 6, restName: "Wings over Ithaca")
         let asiacuisine = Restaurant(imageName: "AsiaCuisine", restType: "Korean", restRating: 10, restName: "Asia Cuisine")
         let sopoong = Restaurant(imageName: "Sopoong", restType: "Korean", restRating: 8, restName: "So Poong")
         let plumtree = Restaurant(imageName: "Plumtree", restType: "Japanese", restRating: 7, restName: "Plum Tree")
@@ -56,23 +46,41 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         layout.scrollDirection = .vertical
         layout.minimumInteritemSpacing = padding
         layout.minimumLineSpacing = padding
-        collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.backgroundColor = .white
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        collectionView.refreshControl = refreshControl
-        view.addSubview(collectionView)
+        restaurantCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        restaurantCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        restaurantCollectionView.backgroundColor = .white
+        restaurantCollectionView.dataSource = self
+        restaurantCollectionView.delegate = self
+        restaurantCollectionView.refreshControl = refreshControl
+        restaurantCollectionView.register(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: photoCellReuseIdentifier)
+        view.addSubview(restaurantCollectionView)
+        
+        let searchlayout = UICollectionViewFlowLayout()
+        searchlayout.scrollDirection = .horizontal
+        filterCollectionView = UICollectionView(frame: .zero, collectionViewLayout: searchlayout)
+        filterCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        filterCollectionView.backgroundColor = .white
+        filterCollectionView.dataSource = self
+        filterCollectionView.delegate = self
+        filterCollectionView.refreshControl = refreshControl
+        filterCollectionView.register(SearchCollectionViewCell.self, forCellWithReuseIdentifier: searchCellReuiseIdentifier)
+        view.addSubview(filterCollectionView)
         
         setupConstraints()
         
     }
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+            filterCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            filterCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+             filterCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+             filterCollectionView.heightAnchor.constraint(equalToConstant: 50)
+            ])
+        NSLayoutConstraint.activate([
+            restaurantCollectionView.topAnchor.constraint(equalTo: filterCollectionView.bottomAnchor, constant: 5),
+            restaurantCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            restaurantCollectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            restaurantCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
             ])
     }
 
@@ -83,6 +91,48 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             self.refreshControl.endRefreshing()
         }
     }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if collectionView == restaurantCollectionView{
+        return restArray.count
+    }
+        else {
+            return Category.allCases.count
+        }
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        // We want || padding IMAGE padding IMAGE padding IMAGE padding ||
+        if collectionView == restaurantCollectionView{
+        let length = (collectionView.frame.width - padding * 4) / 2.0
+        return CGSize(width: length, height: length)
+        }
+        else {
+            let length = (collectionView.frame.width - padding) / 10.0
+            return CGSize(width: length, height: length)
+        }
+    }
+    
 
 }
 
+extension ViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if collectionView == restaurantCollectionView{
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: photoCellReuseIdentifier, for: indexPath) as! PhotoCollectionViewCell
+        let restaurant = restArray[indexPath.item]
+        cell.configure(for: restaurant)
+        cell.setNeedsUpdateConstraints()
+        
+        return cell
+        }
+        else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: searchCellReuiseIdentifier, for: indexPath) as! SearchCollectionViewCell
+            cell.configure(for: Category.allCases[indexPath.item])
+            cell.setNeedsUpdateConstraints()
+            
+            return cell
+        }
+    }
+}
